@@ -27,8 +27,8 @@
     />
     <meta property="og:url" content="https://miraeplus.koraia.org/survey" />
     <!-- OG 이미지: 원하시는 대표 이미지 URL로 교체 권장 -->
-    <meta property="og:image" content="https://koraia.org/base/img/default/img/logo_basic.png" />
-    <meta property="og:image:secure_url" content="https://koraia.org/base/img/default/img/logo_basic.png" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/miraepluskoraia/miraepluskoraia.github.io/refs/heads/main/ogog.png" />
+    <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/miraepluskoraia/miraepluskoraia.github.io/refs/heads/main/ogog.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -47,15 +47,6 @@
     <link rel="icon" href="https://koraia.org/default/img/symbol.ico" />
 
     <style>
-      :root {
-        --bg: #0b1220;
-        --card: #0f1a2e;
-        --text: #e5e7eb;
-        --muted: #93a2b7;
-        --brand: #137fec;
-        --line: rgba(148, 163, 184, 0.18);
-      }
-
       * {
         box-sizing: border-box;
       }
@@ -67,186 +58,27 @@
 
       body {
         margin: 0;
-        background: radial-gradient(1200px 500px at 20% 10%, rgba(19, 127, 236, 0.25), transparent 55%),
-          radial-gradient(900px 500px at 80% 20%, rgba(99, 102, 241, 0.22), transparent 55%),
-          var(--bg);
-        color: var(--text);
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo",
-          "Malgun Gothic", sans-serif;
         overflow: hidden; /* 바깥(호스트) 스크롤 제거: iframe 스크롤만 남김 */
-      }
-
-      .wrap {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-      }
-
-      .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 12px 14px;
-        border-bottom: 1px solid var(--line);
-        background: rgba(11, 18, 32, 0.78);
-        backdrop-filter: blur(10px);
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        min-width: 0;
-      }
-
-      .brand img {
-        height: 22px;
-        width: auto;
-        background: #fff;
-        border-radius: 6px;
-        padding: 4px 6px;
-      }
-
-      .brand .title {
-        font-weight: 800;
-        letter-spacing: -0.2px;
-        font-size: 14px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .actions {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-shrink: 0;
-      }
-
-      .btn {
-        appearance: none;
-        border: 1px solid var(--line);
-        background: rgba(15, 26, 46, 0.7);
-        color: var(--text);
-        padding: 9px 12px;
-        border-radius: 10px;
-        font-size: 13px;
-        font-weight: 700;
-        cursor: pointer;
-        text-decoration: none;
-        transition: transform 0.08s ease, background 0.12s ease, border-color 0.12s ease;
-      }
-
-      .btn:hover {
-        background: rgba(15, 26, 46, 0.95);
-        border-color: rgba(19, 127, 236, 0.45);
-      }
-
-      .btn:active {
-        transform: translateY(1px);
-      }
-
-      .btn.primary {
-        background: linear-gradient(135deg, var(--brand), #4f46e5);
-        border-color: transparent;
-      }
-
-      .btn.primary:hover {
-        filter: brightness(1.02);
-      }
-
-      .frameWrap {
-        flex: 1;
-        padding: 12px;
-        min-height: 0;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .frameCard {
-        flex: 1;
-        min-height: 0;
-        border-radius: 16px;
-        overflow: hidden;
-        border: 1px solid var(--line);
-        background: rgba(15, 26, 46, 0.6);
       }
 
       iframe {
         width: 100%;
-        height: 100%;
+        height: 100vh;
         border: 0;
         background: #fff;
-      }
-
-      .hint {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 10px;
-        padding: 0 16px;
-        font-size: 12px;
-        color: var(--muted);
-        text-align: center;
-        line-height: 1.5;
-        pointer-events: none; /* 아래 오버레이가 클릭을 막지 않게 */
-      }
-
-      .hint a {
-        color: #c7d2fe;
-      }
-
-      @media (max-width: 640px) {
-        .brand img {
-          display: none;
-        }
-        .frameWrap {
-          padding: 10px;
-        }
-        .frameCard {
-          height: calc(100vh - 58px - 20px);
-          border-radius: 14px;
-        }
       }
     </style>
   </head>
 
   <body>
-    <div class="wrap">
-      <header class="topbar">
-        <div class="brand">
-          <img src="https://koraia.org/base/img/default/img/logo_basic.png" alt="한국인공지능협회" />
-          <div class="title">2026년 AI 채용 인력 수요조사</div>
-        </div>
-        <div class="actions">
-          <a class="btn" id="btnOpenNew" href="#" target="_blank" rel="noopener noreferrer">새 창 열기</a>
-          <button class="btn primary" id="btnReload" type="button">새로고침</button>
-        </div>
-      </header>
-
-      <main class="frameWrap">
-        <div class="frameCard">
-          <iframe
-            id="surveyFrame"
-            title="2026년 AI 채용 인력 수요조사"
-            loading="eager"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="clipboard-read; clipboard-write"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-        <div class="hint">
-          만약 화면이 비어 보이거나 로딩이 되지 않는다면, 상단의 <strong>새 창 열기</strong>로 접속해 주세요.<br />
-          (일부 환경에서 iframe 정책에 의해 차단될 수 있습니다.)
-        </div>
-      </main>
-    </div>
+    <iframe
+      id="surveyFrame"
+      title="2026년 AI 채용 인력 수요조사"
+      loading="eager"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="clipboard-read; clipboard-write"
+      allowfullscreen
+    ></iframe>
 
     <script>
       // 임베드 대상 웹앱 URL
@@ -254,20 +86,10 @@
         "https://script.google.com/macros/s/AKfycbzlUmHxqn_cAZWPIeEzFyAwQMjGj0SQ9_Tw6qnCjT8I5TgnMY8NiE0AsHfE4lsT5nZ8/exec";
 
       const $frame = document.getElementById("surveyFrame");
-      const $openNew = document.getElementById("btnOpenNew");
-      const $reload = document.getElementById("btnReload");
 
       function mount() {
         $frame.src = WEBAPP_URL;
-        $openNew.href = WEBAPP_URL;
       }
-
-      $reload.addEventListener("click", () => {
-        // 캐시 방지용 파라미터
-        const u = new URL(WEBAPP_URL);
-        u.searchParams.set("_t", String(Date.now()));
-        $frame.src = u.toString();
-      });
 
       mount();
     </script>
